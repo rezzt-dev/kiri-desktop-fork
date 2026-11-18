@@ -26,7 +26,7 @@ changelog, no el changelog entero. el detalle completo vive en
 - la fuente es siempre `changelog.md` (seccion `## SIN PUBLICAR / UNRELEASED` o version ya cerrada) y el diff real de la rama.
 - minusculas y sin acentos (conservando siempre `ñ` y `Ñ`); los encabezados en mayusculas.
 - categorias cerradas y en este orden: `AÑADIDO`, `CAMBIOS`, `CORREGIDO`, `ELIMINADO`, `SEGURIDAD` (en ingles `ADDED`, `CHANGED`, `FIXED`, `REMOVED`, `SECURITY`). se omite la que no tenga items.
-- los marcadores `[online]` / `[offline]` del changelog se conservan tal cual.
+- conservar solo los marcadores existentes del proyecto; no introducir variantes de focusphone.
 - sin lineas de atribucion ni pies de pagina (ver `agent-rules.md`).
 
 ---
@@ -105,6 +105,8 @@ ejemplo de pr de trabajo:
 ```
 
 si la pr solo aporta parte de `## SIN PUBLICAR / UNRELEASED`, la descripcion incluye solo esos items.
+
+para el fork, conservar tambien las secciones de motivo y validacion de `.github/PULL_REQUEST_TEMPLATE.md`. al enviar a upstream, completar su plantilla, el issue acordado cuando proceda, el origen del hallazgo y la declaracion veraz de herramientas. `CONTRIBUTING.md` pide commits firmados, cla y comprobaciones en los tres sistemas; no declarar pruebas que no se hayan ejecutado.
 
 ---
 

@@ -27,7 +27,7 @@ el historial del repositorio debe leerse como trabajo del propietario. por tanto
 - si el comando de commit o de pr de la herramienta añade atribucion por defecto, se desactiva o se redacta el mensaje a mano sin ella.
 - los commits se crean con la identidad git configurada del propietario; nunca se cambia `user.name` ni `user.email`.
 
-antes de entregar o ejecutar nada, se comprueba que el texto no contiene ninguna de estas cadenas: `co-authored-by`, `generated with`, `claude`, `anthropic`, `chatgpt`, `copilot`, `gpt`, `ia generada`.
+revisar los mensajes para evitar pies automaticos. esta regla no impide citar nombres reales de archivos en documentacion ni responder con veracidad al campo de herramientas de la plantilla de upstream.
 
 ---
 
@@ -68,4 +68,4 @@ si el usuario pide expresamente "haz la pr" o "borra la rama", eso cubre solo es
 ## 5. DATOS SENSIBLES
 
 - nunca se escribe en titulos, descripciones ni changelog: contraseñas, tokens, claves de firma, rutas locales de la maquina, correos personales ni huellas de certificado que no sean ya publicas.
-- el contacto publico del proyecto es `contacto@rezzt.dev`; no se usan otras direcciones.
+- para seguridad, seguir `SECURITY.md`; para conducta, `CODE_OF_CONDUCT.md`. no sustituir los canales heredados ni inventar un contacto propio del fork.

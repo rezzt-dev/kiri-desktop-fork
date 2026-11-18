@@ -1,4 +1,4 @@
-# MANAGER DE GUIAS DE GITHUB
+# KIRI-DESKTOP-FORK: MANAGER DE GUIAS DE GITHUB
 
 ## ESPAÑOL DE ESPAÑA: USO OBLIGATORIO DE Ñ
 
@@ -23,7 +23,7 @@
 
 ## 1. PROTOCOLO (SIEMPRE EN ESTE ORDEN)
 
-1. **leer `agent-rules.md`.** manda sobre todo lo demas: sin rastro de ia y confirmacion antes de actuar hacia fuera.
+1. **leer `agent-rules.md`.** aplicar las convenciones locales respetando las instrucciones de mayor prioridad y la autorizacion vigente.
 2. **clasificar la peticion** con la tabla de la seccion 2. si encaja en varias, se resuelven en el orden de la seccion 8.
 3. **abrir solo las guias que indica la tabla**; no hace falta leer las demas.
 4. **mirar el estado real** con los comandos de lectura de la tabla. nunca se redacta de memoria ni a partir de lo que se hizo antes en la conversacion.
@@ -49,7 +49,7 @@ las frases son ejemplos; vale cualquier peticion equivalente en castellano o ing
 | fusionar | "fusiona la pr", "haz el merge" | `pr-merge-guide`, `agent-rules` | `gh pr view <n>`, `gh pr checks <n>` | `gh pr merge <n> --merge` ejecutado |
 | texto de release | "titulo y descripcion de la release" | `release-guide`, `changelog-guide` | lectura del changelog cerrado, `git tag` | titulo, descripcion en ingles, tag |
 | publicar release | "publica la release", "crea la release" | `release-guide`, `agent-rules` | `gh release list`, `gh pr view` de la pr de version | tag y release creados |
-| cerrar version | "cierra la version", "prepara la 1.5" | `changelog-guide`, `release-guide`, `branching-guide` | lectura del changelog, `apps/studio/package.json`, `packaging/arch/PKGBUILD` | commit `changelog`, luego pr de version |
+| cerrar version | "cierra la version", "prepara la 1.5" | `changelog-guide`, `release-guide`, `branching-guide` | lectura del changelog, `Cargo.toml`, `RELEASES.md`, `docs/releases/` | commit `changelog`, luego pr de version |
 | ramas | "a que rama va esto", "nombre de la rama", "borra la rama" | `branching-guide` | `git branch -a`, `git log <origen>..<destino>` | rama base y comandos |
 | revisar estado | "esta todo listo para fusionar", "que falta" | `branching-guide`, `pr-merge-guide` | `gh pr view`, `git log`, `git status` | lista de lo que falta |
 
@@ -89,6 +89,7 @@ el verbo de la peticion decide si se ejecuta algo:
 | el usuario pide... | se hace | no se hace |
 |---|---|---|
 | "titulo y descripcion", "sacame", "dame", "redacta" | solo se entrega el texto | nada de `git commit`, `push`, `gh` |
+| "prepara el commit" | cambios revisados, titulo y descripcion | nada de `git commit` ni `push` |
 | "haz el commit" | `git add` por nombre y `git commit` | `git push` |
 | "haz la pr" | `git push -u origin <rama>` (si no esta subida) y `gh pr create` | merge |
 | "fusiona" | `gh pr merge <n> --merge` | borrar la rama |
@@ -138,7 +139,7 @@ cuando una peticion junta varias acciones, se ejecutan en este orden y cada una 
 8. preparar la siguiente promocion solo si el flujo real del proyecto la requiere y el usuario la ha solicitado.
 9. tag y release.
 
-si un paso falla (conflictos, checks de `.github/workflows/studio-test.yml` en rojo, pr no fusionable), se detiene la cadena, se explica el motivo y no se intenta saltarlo ni forzarlo.
+si un paso falla (conflictos, checks de `.github/workflows/ui-tests.yml`, `perf.yml` o `codeql.yml` en rojo, pr no fusionable), se detiene la cadena, se explica el motivo y no se intenta saltarlo ni forzarlo.
 
 ---
 
@@ -151,4 +152,13 @@ si un paso falla (conflictos, checks de `.github/workflows/studio-test.yml` en r
 - copiar a la release el bloque en castellano; la release es solo en ingles.
 - dejar la rama de trabajo viva despues de fusionarla (si el usuario pidio borrarla).
 - ejecutar `git push --force`, mover tags o reescribir historial sin orden expresa.
-- añadir cualquier linea que delate la intervencion de una ia.
+- añadir pies automaticos de atribucion; al contribuir a upstream, completar con veracidad los campos de su plantilla.
+
+## 10. MAPA DOCUMENTAL DE KIRI
+
+- contexto tecnico y comprobaciones: [instrucciones raiz](../agents.md); [entrada complementaria](../claude.md)
+- desarrollo y arquitectura: [desarrollo](../docs/development.md) y [contribucion](../CONTRIBUTING.md)
+- historial del fork: [changelog](../changelog.md); notas heredadas: [releases](../docs/releases/) y [proceso upstream](../RELEASES.md)
+- auditoria futura: [procedimiento](repo-audit-and-fix.md); registro de esta adaptacion: [informe](documentation-adaptation.md)
+- las guias de esta carpeta gestionan el fork; una contribucion a upstream sigue tambien `CONTRIBUTING.md` y su plantilla de pr, incluida la declaracion de herramientas cuando se solicite
+- `preparar un commit` entrega cambios revisados y mensaje; `crear el commit` ejecuta el commit local. no confundir ambas peticiones

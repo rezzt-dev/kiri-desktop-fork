@@ -86,14 +86,14 @@ se omite la categoria que no tenga items. no se crean otras.
 changelog | cerrar la seccion de changelog para la version <x.y.z>
 ```
 
-5. abrir la pr de version (ver `pr-merge-guide.md`) y, al fusionar en `main`, crear la release (ver `release-guide.md`).
+5. preparar la pr de version (ver `pr-merge-guide.md`); abrirla y publicar una release solo cuando se hayan solicitado esas acciones (ver `release-guide.md`).
 
 ---
 
 ## 6. NUMERACION
 
-- fuentes de version comprobadas: `apps/studio/package.json` (version de la aplicacion) y `packaging/arch/PKGBUILD` (`pkgver`). el `package.json` de la raiz (`1.0.0`) es solo el del monorepo y no marca la version de la aplicacion.
-- version base de upstream: `5.0.9`; el fork aun no ha publicado versiones propias.
+- `Cargo.toml` declara `workspace.package.version = "0.0.0"` para checkouts. segun `RELEASES.md`, el build upstream toma la version del tag `vX.Y.Z` y modifica esa linea durante su preparacion; `xtask/src/main.rs` usa `CARGO_PKG_VERSION` para empaquetar.
+- `docs/releases/` conserva notas upstream, incluida `0.2.1.md`; `git tag --list` no devuelve tags locales a 2026-11-18. esto no demuestra la ausencia de releases remotas.
 - no inventar versiones ni tags para proyectos sin politica de publicacion.
 - conservar el formato historico de las versiones publicadas; acordar cualquier migracion.
 - las variantes y sus marcadores solo se usan cuando existen en este proyecto.

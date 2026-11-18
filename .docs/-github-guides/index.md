@@ -1,4 +1,4 @@
-# INDICE DE GUIAS DE GITHUB
+# KIRI-DESKTOP-FORK: INDICE DE GUIAS DE GITHUB
 
 ## ESPAÑOL DE ESPAÑA: USO OBLIGATORIO DE Ñ
 
@@ -43,6 +43,10 @@
 | "cierra la version" | `changelog-guide.md`, `release-guide.md`, `branching-guide.md` |
 
 ---
+
+## CONTEXTO DEL FORK
+
+la estructura se adapta de `focusphone-app`; las rutas y comandos corresponden a Kiri. leer [el contexto raiz](../../agents.md) y [el procedimiento de auditoria](../repo-audit-and-fix.md). `docs/` conserva documentacion tecnica upstream y `.docs/` concentra la gestion del fork.
 
 ## FORMATO COMUN DE TODAS LAS GUIAS
 

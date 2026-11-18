@@ -14,13 +14,13 @@
 
 cerrar una version de `changelog.md` solo cuando se haya solicitado publicar. comprobar el commit aprobado, los manifiestos reales y los checks disponibles. una actualizacion de documentacion no publica una version.
 
-fuentes de version: `apps/studio/package.json` (version de la aplicacion) y `packaging/arch/PKGBUILD` (`pkgver`). no hay tags ni releases propios del fork (`git tag` vacio a 2026-11-13); la version base de upstream es `5.0.9`.
+fuentes: `Cargo.toml` (`0.0.0` en checkouts), `xtask/src/main.rs`, `RELEASES.md` y `docs/releases/`. upstream estampa la version desde un tag `vX.Y.Z` antes de compilar. no cambiar la version por editar documentos. no hay tags locales a 2026-11-18; las releases remotas del fork no se han consultado.
 
-los workflows `.github/workflows/studio-publish.yml`, `studio-publish-test.yml` y `create_tag.yml` se heredaron de upstream y publican en la infraestructura de beekeeper studio: no se lanzan desde este repositorio sin adaptarlos antes.
+`RELEASES.md` describe maquinas e infraestructura privadas de upstream. los workflows locales son de interfaz, rendimiento y codeql; no constituyen un pipeline de publicacion del fork. acordar identidad, firmas, alojamiento y feeds propios antes de distribuir binarios.
 
 ## 2. TAG
 
-verificar la convencion real y el commit de release antes de proponer un tag. para nuevas versiones semanticas, usar `v<x.y.z>` si encaja con la politica acordada. nunca mover ni borrar un tag publicado. no confundir una version del sitio con una version de la aplicacion promocionada.
+verificar la convencion real y el commit de release antes de proponer un tag. para nuevas versiones semanticas, usar `v<x.y.z>` si encaja con la politica acordada. nunca mover ni borrar un tag publicado. no confundir las notas upstream con una release propia del fork.
 
 ## 3. TITULO
 
@@ -32,7 +32,7 @@ extraer el bloque ingles de la version cerrada en `changelog.md`, con las catego
 
 ## 5. ACTIVOS Y VERIFICACION
 
-inspeccionar los activos de las releases anteriores y el sistema de build antes de proponer archivos. publicar solo artefactos construidos desde el commit verificado. cuando se distribuyan binarios, incluir sumas y la verificacion de firma que corresponda; nunca claves, configuracion local ni datos privados. para sitios estaticos, el despliegue es una accion distinta de crear una release de github. si no existe politica de releases, registrar `TODO(owner)` en vez de inventarla.
+inspeccionar los activos de las releases anteriores y el sistema de build antes de proponer archivos. publicar solo artefactos construidos desde el commit verificado. cuando se distribuyan binarios, incluir sumas y la verificacion de firma que corresponda; nunca claves, configuracion local ni datos privados. consultar `RELEASES.md`, `xtask/`, `installer/windows/` y `packaging/` para los formatos de macOS, Windows y Linux. el nombre y el logo tienen restricciones documentadas en `README.md`; no atribuir al fork firmas o infraestructura de upstream. si no existe politica de releases, registrar `TODO(owner)` en vez de inventarla.
 
 ## 6. COMANDO
 

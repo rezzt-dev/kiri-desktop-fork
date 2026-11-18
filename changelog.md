@@ -5,12 +5,14 @@
 ### CASTELLANO
 
 #### AÑADIDO
+- añadir las instrucciones raiz y el registro de adaptacion documental del fork
 - incluir las tipografias `Space Grotesk` y `JetBrains Mono` en la aplicacion (`crates/kiri/src/ui/fonts/`, `typefaces.rs`) y registrar sus licencias en `NOTICE` y `scripts/ci/notices.sh`
 - traducir el color de acento `Graphite` a los 37 idiomas
 - añadir las pruebas `tests/ui/contrast.js`, `tests/ui/narrowtable.js` y `tests/ui/polish.js`
 - documentar la auditoria de interfaz en `.docs/agent-docs/ui-ux-audit.md`
 
 #### CAMBIOS
+- adaptar las guias de gestion y auditoria al workspace Rust, las ramas y la publicacion de Kiri
 - rediseñar la ventana principal y la de instalacion de windows con un estilo monocromo, de esquinas rectas, lineas finas y colores definidos como variables, en tema oscuro y claro
 - unificar el boton de cierre (×) de avisos, tarjetas, franjas y dialogos en un solo control de 24 px con estados de cursor, pulsacion y foco
 - unificar los desplegables de ajustes con el selector de idioma (mismo tamaño y mismo chevron)
@@ -27,12 +29,14 @@
 ### ENGLISH
 
 #### ADDED
+- add root instructions and the documentation adaptation record for the fork
 - bundle the `Space Grotesk` and `JetBrains Mono` typefaces in the app (`crates/kiri/src/ui/fonts/`, `typefaces.rs`) and record their licences in `NOTICE` and `scripts/ci/notices.sh`
 - translate the `Graphite` accent colour into the 37 languages
 - add the `tests/ui/contrast.js`, `tests/ui/narrowtable.js` and `tests/ui/polish.js` tests
 - document the interface audit in `.docs/agent-docs/ui-ux-audit.md`
 
 #### CHANGED
+- adapt management and audit guides to the Rust workspace, branches and Kiri release process
 - redesign the main window and the windows setup window in a monochrome style with square corners, hairlines and colours defined as variables, in dark and light themes
 - unify the close button (×) of toasts, cards, strips and dialogs into one 24 px control with hover, pressed and focus states
 - unify the settings lists with the language picker (same size and same chevron)

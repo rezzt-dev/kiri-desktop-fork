@@ -14,7 +14,10 @@
 *.zip
 *.tar.gz
 
-# Local assistant notes (each machine keeps its own)
+# Local assistant notes; the shared project entry point is versioned
 CLAUDE.md
 CLAUDE.local.md
 .claude/
+
+# Shared project instructions requested for this fork.
+!/claude.md

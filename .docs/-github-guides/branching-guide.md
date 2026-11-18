@@ -12,33 +12,29 @@
 
 ## 1. RAMAS VERIFICADAS
 
-rama remota consultada el 2026-11-13: `main`.
-
-la rama por defecto de github es `main` y es la unica rama permanente. no se cambia la rama por defecto ni se crean lineas de version por copiar un modelo de otro proyecto. los workflows heredados de upstream mencionan `master`, que no existe aqui.
+inventario local a 2026-11-18: rama actual `main`, referencias `origin/main` y `origin/HEAD -> origin/main`. el remoto `origin` apunta a `rezzt-dev/kiri-desktop-fork`. estas referencias no son una consulta actual de la api de github; comprobar el destino remoto antes de publicar.
 
 ## 2. RAMAS DE TRABAJO
 
-| prefijo | uso | destino |
+| prefijo | uso | destino habitual en el fork |
 | --- | --- | --- |
-| `feature/` | funcionalidad nueva | rama de desarrollo acordada |
-| `fix/` | correcciones | rama que contiene el fallo |
+| `feature/` | funcionalidad nueva | `main` |
+| `fix/` | correcciones | `main` |
 | `changes/` | documentacion, estructura y tooling | `main` |
-| `hotfix/` | urgencia sobre una version publicada | rama del codigo publicado verificada |
+| `hotfix/` | urgencia en una version publicada | verificar la rama del codigo publicado |
 
-una rama por tema, por ejemplo `changes/<tema>`. comprobar siempre `git log <base>..<rama>` y `git diff <base>...<rama>` antes de abrir la pr.
+una rama por tema, por ejemplo `changes/documentacion-kiri`. antes de abrir una pr, comprobar `git log <base>..<rama>` y `git diff <base>...<rama>`. no crear ramas de alfa, beta o promociones tomadas de focusphone.
 
 ## 3. FLUJO Y VERSIONES
 
-`changes/<tema>` → `main` mediante pull request. usar merge commit si se solicita fusionar. una pr de documentacion no cierra una version ni publica artefactos.
-
-para otras versiones, verificar el historial y las ramas vigentes antes de decidir la base. no crear ramas de alfa, beta o release inexistentes. no copiar un modelo de promociones de otro proyecto.
+`changes/<tema>` → `main` mediante pr cuando se solicite. conservar merge commit como convencion del fork; al contribuir a upstream, comprobar su politica vigente. una pr de documentacion no cierra una version ni publica artefactos.
 
 ## 4. VERIFICACION
 
-workflows versionados (heredados de upstream): `.github/workflows/studio-test.yml` (pruebas unitarias, se lanza en `main` y `master`), `studio-pr.yml`, `studio-master.yml`, `docs-deploy.yml` y los de publicacion. comprobar los checks reales de la pr; la ausencia de ci no equivale a una ejecucion correcta. para documentacion, revisar enlaces y `git diff --check`; para codigo, seguir los comandos de la guia del proyecto.
+workflows versionados: `.github/workflows/ui-tests.yml` (traducciones e interfaz), `.github/workflows/perf.yml` (rendimiento) y `.github/workflows/codeql.yml` (analisis). comprobar los checks reales de la pr; un workflow presente no demuestra que se haya ejecutado.
 
-antes de publicar, comprobar que el destino no introduce cambios incompatibles. actualizar la rama mediante un merge autorizado cuando haga falta; no reescribir commits publicados.
+para documentos, revisar enlaces y `git diff --check`; para codigo, seguir `agents.md` y `CONTRIBUTING.md`. no reescribir commits publicados para actualizar una rama.
 
 ## 5. LIMPIEZA
 
-conservar las ramas permanentes. borrar una rama de trabajo solo tras confirmar su merge y cuando se haya solicitado su eliminacion. no cambiar la copia de trabajo del propietario para limpiar un worktree auxiliar.
+conservar `main`. borrar ramas de trabajo solo tras verificar su merge y cuando se haya solicitado. conservar los cambios previos del propietario.
