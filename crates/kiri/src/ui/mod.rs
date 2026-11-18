@@ -32,6 +32,7 @@ use linux::{import, setup, update};
 
 mod assemble;
 mod lang;
+mod typefaces;
 #[cfg(unix)]
 mod term;
 mod termwire;
@@ -1519,6 +1520,11 @@ fn handle(text: &str, tx: &Sender<Cmd>, autostart: bool, view: Option<&str>) {
             if let Some(js) = lang::words_js(&msg.name) {
                 window::eval(js);
             }
+            Ok(())
+        }
+        // The window's own fonts, once the page is up (ui/typefaces.rs).
+        "typefaces" => {
+            window::eval(typefaces::js());
             Ok(())
         }
         "about" => tx.send(Cmd::About),

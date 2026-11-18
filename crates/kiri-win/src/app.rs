@@ -653,7 +653,7 @@ fn webview_ready(hwnd: HWND, ctl: ICoreWebView2Controller) -> windows::core::Res
 /// Whether Windows is in dark mode for apps.
 /// The page's --bg, dark or light: what shows before it paints.
 fn backdrop(dark: bool) -> (u8, u8, u8) {
-    if dark { (0x0F, 0x14, 0x19) } else { (0xF5, 0xF7, 0xFA) }
+    if dark { (0x08, 0x08, 0x08) } else { (0xF4, 0xF4, 0xF4) }
 }
 
 /// WebView2 paints white until the page does; paint the page's background instead.

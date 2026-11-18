@@ -25,7 +25,9 @@ window.webkit = { messageHandlers: { kiri: { postMessage: (m) => { const o = JSO
 const KEEP = new Set(("kiri dev share cloud docker hub desktop compose kubernetes kubectl macos windows linux wsl mac pc ubuntu " +
   "orbstack finder explorer pod pods service services deployment replicaset clusterip nodeport loadbalancer ingress configmap secret " +
   "canestack labs cpu cpus gpu ram id ids url dns tcp udp http https ip ipv6 ssh tls api cli json yaml sha k3s ok " +
-  "web api postgres worker nginx alpine node python octo localhost runkiri default rancher latest").split(" "));
+  "web api postgres worker nginx alpine node python octo localhost runkiri default rancher latest " +
+  // Kiri's own fonts, by name in Settings → Appearance (JetBrains splits as Jet Brains).
+  "space grotesk jet brains mono").split(" "));
 function english(root) {
   const out = [];
   const walk = (el) => {

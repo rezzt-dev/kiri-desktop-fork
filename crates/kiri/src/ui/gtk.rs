@@ -167,7 +167,7 @@ pub(super) fn set_appearance(theme: &str) {
 /// only the regions repainted in each frame, and the rest of the window
 /// flickers through to whatever is behind it.
 fn page_background(dark: bool) -> gtk::gdk::RGBA {
-    let (r, g, b) = if dark { (0x0F, 0x14, 0x19) } else { (0xF5, 0xF7, 0xFA) };
+    let (r, g, b) = if dark { (0x08, 0x08, 0x08) } else { (0xF4, 0xF4, 0xF4) };
     gtk::gdk::RGBA::new(f64::from(r) / 255.0, f64::from(g) / 255.0, f64::from(b) / 255.0, 1.0)
 }
 

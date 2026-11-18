@@ -1112,6 +1112,8 @@ pub fn on_message(msg: &str) {
                 Handle.eval(js);
             }
         }
+        // The window's own fonts, once the page is up (ui/typefaces.rs).
+        "typefaces" => Handle.eval(crate::typefaces::js()),
         "fonts" => emit(json!({"type": "fonts", "families": crate::app::font_families(false), "mono": crate::app::font_families(true)}).to_string()),
         "proxy" => {
             std::thread::spawn(|| proxy(None));

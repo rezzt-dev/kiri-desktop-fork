@@ -20,6 +20,8 @@ notice 'Docker Buildx 0.38.1 — Apache-2.0' 'https://raw.githubusercontent.com/
 notice 'Grype 0.120.1 — Apache-2.0' 'https://raw.githubusercontent.com/anchore/grype/v0.120.1/LICENSE'
 notice 'Phosphor Icons 2.1.1 — MIT' 'https://unpkg.com/@phosphor-icons/core@2.1.1/LICENSE'
 notice 'Simple Icons 16.35.0 — CC0' 'https://unpkg.com/simple-icons@16.35.0/LICENSE.md'
+notice 'Space Grotesk — SIL Open Font License 1.1' 'https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt'
+notice 'JetBrains Mono — SIL Open Font License 1.1' 'https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/OFL.txt'
 notice 'Linux guest kernel — GPL-2.0-only' 'https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt'
 printf '\nGuest kernel source offer\n----------------------------------------------------------------------\n\n' >> "$tmp"
 cat guest/kernel/SOURCE_OFFER.md >> "$tmp"

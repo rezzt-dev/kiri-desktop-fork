@@ -21,6 +21,10 @@ mod assemble;
 #[cfg(windows)]
 #[path = "../../kiri/src/ui/lang.rs"]
 mod lang;
+// The window's own fonts, which the page asks for once it's up.
+#[cfg(windows)]
+#[path = "../../kiri/src/ui/typefaces.rs"]
+mod typefaces;
 #[cfg(windows)]
 mod client;
 #[cfg(windows)]

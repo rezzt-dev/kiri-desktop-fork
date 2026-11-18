@@ -11,7 +11,7 @@ crates/kiri-win/src/setup.html, instead of the main window).
 
     python3 scripts/ui-test.py [tests/ui/switch.js ...]
 """
-import html, json, os, re, subprocess, sys, tempfile
+import base64, html, json, os, re, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
@@ -40,17 +40,29 @@ def opening(pick, packed):
     return {"en": packed["en"], **({pick: packed[pick]} if pick in packed and pick != "en" else {})}
 
 
+def typefaces():
+    """What typefaces.rs's js() hands kiriTypefaces: the window's own fonts as data URLs."""
+    faces = [("Space Grotesk", "space-grotesk.woff2"), ("JetBrains Mono", "jetbrains-mono.woff2")]
+    return [{"family": fam, "weight": "400 700", "src": "data:font/woff2;base64," + base64.b64encode(open(os.path.join(UI, "fonts", f), "rb").read()).decode()}
+            for fam, f in faces]
+
+
 def host(packed):
     """The host's half of langwords, after the fixture's recorder: it answers as
     lang.rs's words_js does, calling kiriWords with that language's words, at
     once (a real host answers a moment later). hostHold = true keeps the answers
-    until hostFlush(), for a test of the moment in between."""
+    until hostFlush(), for a test of the moment in between. typefaces is
+    answered too, as typefaces.rs does (HOST_FACES), so the tests measure Kiri's
+    own fonts; page() hands them over itself, since the page asks before this
+    host is listening, and starts the test once they've loaded."""
     words = {t: w for t, w in packed.items() if t != "en"}
     return (f"const HOST_WORDS = {json.dumps(words, ensure_ascii=False)};\n"
+            f"const HOST_FACES = {json.dumps(typefaces())};\n"
             "let hostHold = false; const hostHeld = [];\n"
             "const hostFlush = () => hostHeld.splice(0).forEach((f) => f());\n"
             "{ const post = window.webkit.messageHandlers.kiri.postMessage;\n"
             "  window.webkit.messageHandlers.kiri.postMessage = (m) => { post(m); const o = JSON.parse(m);\n"
+            "    if (o.cmd === \"typefaces\") { window.kiriTypefaces && kiriTypefaces(HOST_FACES); return; }\n"
             "    if (o.cmd !== \"langwords\" || !HOST_WORDS[o.name]) return;\n"
             "    const answer = () => window.kiriWords && kiriWords({ [o.name]: HOST_WORDS[o.name] });\n"
             "    if (hostHold) hostHeld.push(answer); else answer(); }; }\n")
@@ -105,7 +117,11 @@ def page(test, os_name=None):
     if os_name and os_name != "macos":
         index = index.replace("<head>", f'<head><script>window.KIRI_OS = "{os_name}";</script>', 1)
     fixture = open(os.path.join(ROOT, "tests/ui/fixture.js")).read()
-    return index[: index.rindex("</body>")] + CATCH + f"<script>{REPORT}\n{fixture}\n{host(packed)}\n{open(test).read()}</script></body></html>"
+    # The page asked for its fonts before this host was listening: they're handed over
+    # here, and the test runs once they've loaded, a script of its own as before.
+    run_test = json.dumps(open(test).read()).replace("</", "<\\/")
+    return (index[: index.rindex("</body>")] + CATCH + f"<script>{REPORT}\n{fixture}\n{host(packed)}\nkiriTypefaces(HOST_FACES);</script>"
+            f"<script>document.fonts.ready.then(() => {{ const s = document.createElement(\"script\"); s.textContent = {run_test}; document.body.append(s); }});</script></body></html>")
 
 
 def run(test, os_name=None):

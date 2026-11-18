@@ -19,7 +19,7 @@ t("every font size is on the scale", () => {
 });
 t("the sizes", () => {
   const v = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  eq(["--fs-small", "--fs", "--fs-mono", "--fs-head", "--fs-title"].map(v), ["11px", "12px", "11.5px", "14px", "18px"], "scale");
+  eq(["--fs-small", "--fs", "--fs-mono", "--fs-head", "--fs-title"].map(v), ["11px", "12px", "11.5px", "14px", "22px"], "scale");
 });
 t("the sidebar is the size everything else is", () => {
   const px = (sel) => getComputedStyle(document.querySelector(sel)).fontSize;
