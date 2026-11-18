@@ -46,7 +46,7 @@
 
 ## CONTEXTO DEL FORK
 
-la estructura se adapta de `focusphone-app`; las rutas y comandos corresponden a Kiri. leer [el contexto raiz](../../agents.md) y [el procedimiento de auditoria](../repo-audit-and-fix.md). `docs/` conserva documentacion tecnica upstream y `.docs/` concentra la gestion del fork.
+la estructura se adapta de `focusphone-app`; las rutas y comandos corresponden a Kiri. leer [el contexto raiz](../../agents.md) y [el procedimiento de auditoria](../repo-audit-and-fix.md). `docs/` conserva documentacion tecnica upstream y `.docs/` concentra la gestion del fork. los documentos comunitarios estan en `.github/`; acuerdos y procesos heredados, en [.docs/github-docs/](../github-docs/readme.md). las entradas raiz usan minusculas, con las excepciones de herramientas registradas en ese indice.
 
 ## FORMATO COMUN DE TODAS LAS GUIAS
 

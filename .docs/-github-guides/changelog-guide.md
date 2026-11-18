@@ -92,7 +92,7 @@ changelog | cerrar la seccion de changelog para la version <x.y.z>
 
 ## 6. NUMERACION
 
-- `Cargo.toml` declara `workspace.package.version = "0.0.0"` para checkouts. segun `RELEASES.md`, el build upstream toma la version del tag `vX.Y.Z` y modifica esa linea durante su preparacion; `xtask/src/main.rs` usa `CARGO_PKG_VERSION` para empaquetar.
+- `Cargo.toml` declara `workspace.package.version = "0.0.0"` para checkouts. segun `.docs/github-docs/releases.md`, el build upstream toma la version del tag `vX.Y.Z` y modifica esa linea durante su preparacion; `xtask/src/main.rs` usa `CARGO_PKG_VERSION` para empaquetar.
 - `docs/releases/` conserva notas upstream, incluida `0.2.1.md`; `git tag --list` no devuelve tags locales a 2026-11-18. esto no demuestra la ausencia de releases remotas.
 - no inventar versiones ni tags para proyectos sin politica de publicacion.
 - conservar el formato historico de las versiones publicadas; acordar cualquier migracion.

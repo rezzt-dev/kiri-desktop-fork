@@ -32,11 +32,11 @@ Entrega archivos, comprobaciones, pendientes y comandos propuestos.
 | producto | fork de Kiri, runtime de contenedores en Rust con daemon, api compatible con Docker, interfaz y soporte de macOS, Windows y Linux |
 | fuente activa | `Cargo.toml`, `crates/` y `xtask/` |
 | ramas locales y referencias remotas | `main`, `origin/main`, `origin/HEAD -> origin/main`; no equivale a consultar github |
-| version en codigo | `workspace.package.version = "0.0.0"`; `RELEASES.md` describe el estampado desde el tag en builds upstream |
+| version en codigo | `workspace.package.version = "0.0.0"`; `.docs/github-docs/releases.md` describe el estampado desde el tag en builds upstream |
 | notas y tags | `docs/releases/` contiene notas upstream hasta `0.2.1.md`; sin tags locales; releases remotas pendientes de consulta |
 | integracion continua | `.github/workflows/ui-tests.yml`, `perf.yml` y `codeql.yml` |
-| documentos legales y comunidad | `LICENSE`, `NOTICE`, `CLA.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md` |
-| changelog | `changelog.md` bilingue del fork; conservar `docs/releases/` y `RELEASES.md` heredados |
+| documentos legales y comunidad | `license.md`, `notice.md`, `.docs/github-docs/cla.md`, `.github/contributing.md`, `.github/code_of_conduct.md`, `security.md` |
+| changelog | `changelog.md` bilingue del fork; conservar `docs/releases/` y `.docs/github-docs/releases.md` heredados |
 | documentacion tecnica | `docs/development.md`, `docs/features.md`; gestion interna en `.docs/` |
 
 hallazgos concretos para contrastar:
@@ -62,23 +62,23 @@ revisar artefactos, dependencias instaladas, archivos del ide y patrones de excl
 
 ### FASE 3: CONTEXTO TECNICO
 
-contrastar `CONTRIBUTING.md`, `README.md` y `docs/development.md` con `Cargo.toml`, `crates/`, `xtask/`, `guest/`, `installer/`, `packaging/` y `scripts/`. verificar la separacion host/guest, el protocolo, la api Docker, la interfaz y los caminos por plataforma. revisar `scripts/reinstall-linux.sh` como herramienta de instalacion del fork: reemplaza binarios y servicios; no ejecutarla como comprobacion documental. preservar los cambios previos del propietario.
+contrastar `.github/contributing.md`, `readme.md` y `docs/development.md` con `Cargo.toml`, `crates/`, `xtask/`, `guest/`, `installer/`, `packaging/` y `scripts/`. verificar la separacion host/guest, el protocolo, la api Docker, la interfaz y los caminos por plataforma. revisar `scripts/reinstall-linux.sh` como herramienta de instalacion del fork: reemplaza binarios y servicios; no ejecutarla como comprobacion documental. preservar los cambios previos del propietario.
 
-mantener la paridad de funciones de macOS, Windows y Linux exigida por `CONTRIBUTING.md`, incluidas las pruebas de interfaz y traducciones. revisar las dependencias contra `Cargo.lock`, los componentes empaquetados y `NOTICE`; `scripts/ci/notices.sh` actualiza los avisos cuando cambian dependencias o herramientas incluidas.
+mantener la paridad de funciones de macOS, Windows y Linux exigida por `.github/contributing.md`, incluidas las pruebas de interfaz y traducciones. revisar las dependencias contra `Cargo.lock`, los componentes empaquetados y `notice.md`; `scripts/ci/notices.sh` actualiza los avisos cuando cambian dependencias o herramientas incluidas.
 
 ### FASE 4: DOCUMENTACION Y COMUNIDAD
 
-comprobar readme, contribucion, seguridad y enlaces relativos. registrar archivos ausentes y proponer contenido dentro del alcance autorizado. mantener paridad castellano/ingles cuando el proyecto la use. revisar `LICENSE` (Apache-2.0), `NOTICE`, `CLA.md` y `guest/kernel/` sin cambiar sus condiciones ni inventar identidad juridica. comprobar las restricciones del nombre y el logo recogidas en `README.md` antes de distribuir el fork. verificar privacidad contra permisos, almacenamiento y servicios reales.
+comprobar readme, contribucion, seguridad y enlaces relativos. registrar archivos ausentes y proponer contenido dentro del alcance autorizado. mantener paridad castellano/ingles cuando el proyecto la use. revisar `license.md` (Apache-2.0), `notice.md`, `.docs/github-docs/cla.md` y `guest/kernel/` sin cambiar sus condiciones ni inventar identidad juridica. comprobar las restricciones del nombre y el logo recogidas en `readme.md` antes de distribuir el fork. verificar privacidad contra permisos, almacenamiento y servicios reales.
 
 ### FASE 5: VERIFICACION
 
-para documentos, ejecutar `git diff --check`, resolver enlaces locales y revisar referencias retiradas. para Rust, seguir `CONTRIBUTING.md`: `cargo fmt --check`, `cargo clippy` y `cargo test`. para interfaz y traducciones, `python3 scripts/i18n-check.py` y `python3 scripts/ui-test.py` (configurar `CHROME` en Linux). registrar requisitos de entorno y pruebas por plataforma pendientes.
+para documentos, ejecutar `git diff --check`, resolver enlaces locales y revisar referencias retiradas. para Rust, seguir `.github/contributing.md`: `cargo fmt --check`, `cargo clippy` y `cargo test`. para interfaz y traducciones, `python3 scripts/i18n-check.py` y `python3 scripts/ui-test.py` (configurar `CHROME` en Linux). registrar requisitos de entorno y pruebas por plataforma pendientes.
 
 las suites `tests/e2e.sh`, `tests/linux-host.sh`, las mediciones de rendimiento y el empaquetado requieren motores, contenedores o privilegios: usar entornos aislados cuando sean pertinentes al cambio. una tarea documental no exige iniciar el daemon, reinstalar Kiri ni modificar contextos Docker o servicios.
 
 ### FASE 6: VERSION Y RELEASE
 
-seguir `RELEASES.md` para entender upstream, sin presuponer acceso a sus maquinas, firmas o feeds. solo preparar una release del fork cuando se haya pedido: contrastar version, changelog, commit, artefactos y comprobaciones. no subir versiones por editar guias. conservar tags publicados y enlaces existentes. documentar el impacto de cualquier cambio de nombre o destino antes de actuar.
+seguir `.docs/github-docs/releases.md` para entender upstream, sin presuponer acceso a sus maquinas, firmas o feeds. solo preparar una release del fork cuando se haya pedido: contrastar version, changelog, commit, artefactos y comprobaciones. no subir versiones por editar guias. conservar tags publicados y enlaces existentes. documentar el impacto de cualquier cambio de nombre o destino antes de actuar.
 
 ### FASE 7: METADATOS DE GITHUB
 

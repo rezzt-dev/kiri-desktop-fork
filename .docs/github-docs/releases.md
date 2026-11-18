@@ -61,11 +61,11 @@ public repository.
 ## Building it yourself
 
 Everything that builds a release is in `xtask/`, `scripts/` and `packaging/`, so you can build
-the same tag yourself (see `CONTRIBUTING.md`). Builds aren't byte-for-byte
+the same tag yourself (see [contributing](../../.github/contributing.md)). Builds aren't byte-for-byte
 reproducible yet, so your files won't match ours bit for bit. Making the Linux
 packages reproducible is planned.
 
 ## Reporting a problem
 
 If a download doesn't match its checksum or signature, or you think a release
-was tampered with, please report it privately as `SECURITY.md` describes.
+was tampered with, please report it privately as [security.md](../../security.md) describes.

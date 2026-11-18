@@ -10,7 +10,7 @@ unmodified, and assemble.rs splices them into the window's page.
 | addon-search.js | `@xterm/addon-search@0.16.0` (lib/addon-search.js) | 7bc1b8c7b3549411f6f6f779524c4ded6ca621fd80d64b40a70ae7c78aefbf55 |
 | addon-web-links.js | `@xterm/addon-web-links@0.12.0` (lib/addon-web-links.js) | b74864125ef3889753b94e61eb4dabb99b2a27f920f0c9a7bd53cbe6d10f032a |
 
-MIT licence: LICENSE here, and in the repository's NOTICE.
+MIT licence: LICENSE here, and in the repository's notice.md.
 
 To update: download the same paths from https://unpkg.com/<package>@<version>/,
 replace the files, update this table, and run `cargo test -p kiri assemble`

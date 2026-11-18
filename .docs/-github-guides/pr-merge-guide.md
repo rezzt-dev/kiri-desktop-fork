@@ -106,7 +106,7 @@ ejemplo de pr de trabajo:
 
 si la pr solo aporta parte de `## SIN PUBLICAR / UNRELEASED`, la descripcion incluye solo esos items.
 
-para el fork, conservar tambien las secciones de motivo y validacion de `.github/PULL_REQUEST_TEMPLATE.md`. al enviar a upstream, completar su plantilla, el issue acordado cuando proceda, el origen del hallazgo y la declaracion veraz de herramientas. `CONTRIBUTING.md` pide commits firmados, cla y comprobaciones en los tres sistemas; no declarar pruebas que no se hayan ejecutado.
+para el fork, conservar tambien las secciones de motivo y validacion de `.github/pull_request_template.md`. al enviar a upstream, completar su plantilla, el issue acordado cuando proceda, el origen del hallazgo y la declaracion veraz de herramientas. `.github/contributing.md` pide commits firmados, cla y comprobaciones en los tres sistemas; no declarar pruebas que no se hayan ejecutado.
 
 ---
 

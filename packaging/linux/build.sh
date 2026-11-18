@@ -98,7 +98,8 @@ build_deb() { # name full(0|1)
   [ "$full" = 1 ] && stage_cli "$pkg"
   [ "$full" = 1 ] && [ -n "$window" ] && stage_window "$pkg"
   mkdir -p "$pkg/DEBIAN" "$pkg/usr/share/doc/$name"
-  install -m 644 "$root/LICENSE" "$root/NOTICE" "$pkg/usr/share/doc/$name/"
+  install -m 644 "$root/license.md" "$pkg/usr/share/doc/$name/LICENSE"
+  install -m 644 "$root/notice.md" "$pkg/usr/share/doc/$name/NOTICE"
   cat > "$pkg/usr/share/doc/$name/copyright" <<EOF
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: kiri
@@ -161,7 +162,9 @@ EOF
 build_rpm() { # name full(0|1)
   local top=$work/rpm-$1
   mkdir -p "$top"/{SOURCES,BUILD,RPMS,SRPMS,SPECS}
-  cp "$bindir/kiri" "$bindir/kiri-init" "$here/kiri.service" "$here/dev.kiri.host-access.policy" "$root/LICENSE" "$root/NOTICE" "$top/SOURCES/"
+  cp "$bindir/kiri" "$bindir/kiri-init" "$here/kiri.service" "$here/dev.kiri.host-access.policy" "$top/SOURCES/"
+  cp "$root/license.md" "$top/SOURCES/LICENSE"
+  cp "$root/notice.md" "$top/SOURCES/NOTICE"
   local with=()
   if [ "$2" = 1 ]; then
     cp "$clidir/docker" "$top/SOURCES/docker"

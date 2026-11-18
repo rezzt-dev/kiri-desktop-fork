@@ -1,5 +1,5 @@
 #!/bin/sh
-# Regenerates NOTICE from Cargo.lock and the pinned non-Rust components.
+# Regenerates notice.md from Cargo.lock and the pinned non-Rust components.
 set -eu
 root=$(cd "$(dirname "$0")/../.." && pwd)
 cd "$root"
@@ -27,4 +27,4 @@ printf '\nGuest kernel source offer\n-------------------------------------------
 cat guest/kernel/SOURCE_OFFER.md >> "$tmp"
 sed -e 's/\r$//' -e 's/[[:blank:]]*$//' "$tmp" > "$tmp.clean"
 mv "$tmp.clean" "$tmp"
-mv "$tmp" NOTICE
+mv "$tmp" notice.md

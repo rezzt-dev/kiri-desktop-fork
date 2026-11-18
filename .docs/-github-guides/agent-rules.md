@@ -68,4 +68,4 @@ si el usuario pide expresamente "haz la pr" o "borra la rama", eso cubre solo es
 ## 5. DATOS SENSIBLES
 
 - nunca se escribe en titulos, descripciones ni changelog: contraseñas, tokens, claves de firma, rutas locales de la maquina, correos personales ni huellas de certificado que no sean ya publicas.
-- para seguridad, seguir `SECURITY.md`; para conducta, `CODE_OF_CONDUCT.md`. no sustituir los canales heredados ni inventar un contacto propio del fork.
+- para seguridad, seguir `security.md`; para conducta, `.github/code_of_conduct.md`. no sustituir los canales heredados ni inventar un contacto propio del fork.

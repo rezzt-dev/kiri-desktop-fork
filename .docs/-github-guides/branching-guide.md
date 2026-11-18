@@ -33,7 +33,7 @@ una rama por tema, por ejemplo `changes/documentacion-kiri`. antes de abrir una 
 
 workflows versionados: `.github/workflows/ui-tests.yml` (traducciones e interfaz), `.github/workflows/perf.yml` (rendimiento) y `.github/workflows/codeql.yml` (analisis). comprobar los checks reales de la pr; un workflow presente no demuestra que se haya ejecutado.
 
-para documentos, revisar enlaces y `git diff --check`; para codigo, seguir `agents.md` y `CONTRIBUTING.md`. no reescribir commits publicados para actualizar una rama.
+para documentos, revisar enlaces y `git diff --check`; para codigo, seguir `agents.md` y `.github/contributing.md`. no reescribir commits publicados para actualizar una rama.
 
 ## 5. LIMPIEZA
 

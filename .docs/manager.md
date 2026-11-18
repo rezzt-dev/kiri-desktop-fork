@@ -49,7 +49,7 @@ las frases son ejemplos; vale cualquier peticion equivalente en castellano o ing
 | fusionar | "fusiona la pr", "haz el merge" | `pr-merge-guide`, `agent-rules` | `gh pr view <n>`, `gh pr checks <n>` | `gh pr merge <n> --merge` ejecutado |
 | texto de release | "titulo y descripcion de la release" | `release-guide`, `changelog-guide` | lectura del changelog cerrado, `git tag` | titulo, descripcion en ingles, tag |
 | publicar release | "publica la release", "crea la release" | `release-guide`, `agent-rules` | `gh release list`, `gh pr view` de la pr de version | tag y release creados |
-| cerrar version | "cierra la version", "prepara la 1.5" | `changelog-guide`, `release-guide`, `branching-guide` | lectura del changelog, `Cargo.toml`, `RELEASES.md`, `docs/releases/` | commit `changelog`, luego pr de version |
+| cerrar version | "cierra la version", "prepara la 1.5" | `changelog-guide`, `release-guide`, `branching-guide` | lectura del changelog, `Cargo.toml`, `.docs/github-docs/releases.md`, `docs/releases/` | commit `changelog`, luego pr de version |
 | ramas | "a que rama va esto", "nombre de la rama", "borra la rama" | `branching-guide` | `git branch -a`, `git log <origen>..<destino>` | rama base y comandos |
 | revisar estado | "esta todo listo para fusionar", "que falta" | `branching-guide`, `pr-merge-guide` | `gh pr view`, `git log`, `git status` | lista de lo que falta |
 
@@ -157,8 +157,11 @@ si un paso falla (conflictos, checks de `.github/workflows/ui-tests.yml`, `perf.
 ## 10. MAPA DOCUMENTAL DE KIRI
 
 - contexto tecnico y comprobaciones: [instrucciones raiz](../agents.md); [entrada complementaria](../claude.md)
-- desarrollo y arquitectura: [desarrollo](../docs/development.md) y [contribucion](../CONTRIBUTING.md)
-- historial del fork: [changelog](../changelog.md); notas heredadas: [releases](../docs/releases/) y [proceso upstream](../RELEASES.md)
+- desarrollo y arquitectura: [desarrollo](../docs/development.md) y [contribucion](../.github/contributing.md)
+- historial del fork: [changelog](../changelog.md); notas heredadas: [releases](../docs/releases/) y [proceso upstream](github-docs/releases.md)
 - auditoria futura: [procedimiento](repo-audit-and-fix.md); registro de esta adaptacion: [informe](documentation-adaptation.md)
-- las guias de esta carpeta gestionan el fork; una contribucion a upstream sigue tambien `CONTRIBUTING.md` y su plantilla de pr, incluida la declaracion de herramientas cuando se solicite
+- las guias de esta carpeta gestionan el fork; una contribucion a upstream sigue tambien `.github/contributing.md` y su plantilla de pr, incluida la declaracion de herramientas cuando se solicite
 - `preparar un commit` entrega cambios revisados y mensaje; `crear el commit` ejecuta el commit local. no confundir ambas peticiones
+
+- organizacion documental: [indice de documentos trasladados](github-docs/readme.md); comunidad en `.github/`, acuerdos y procesos en `.docs/github-docs/`, documentacion tecnica en `docs/` y entradas en minusculas en raiz
+- `license.md` y `notice.md` son las fuentes legales; el empaquetado conserva `LICENSE` y `NOTICE` en los artefactos distribuidos

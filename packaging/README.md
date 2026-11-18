@@ -33,7 +33,7 @@ same way on Fedora. Each file goes up with `SHA256SUMS-linux`.
 
 A `v*` tag builds Mac, Windows and Linux; each build puts its files on
 download.runkiri.com with its feeds staged, and the release moves every
-feed and updates the website once all three are up (RELEASES.md). On a Mac, `scripts/ci/linux-packages.sh` builds
+feed and updates the website once all three are up ([release process](../.docs/github-docs/releases.md)). On a Mac, `scripts/ci/linux-packages.sh` builds
 the same packages in a Linux container.
 
 `build.sh` needs `dpkg-deb` and `rpmbuild` (`apt install rpm` on Debian;

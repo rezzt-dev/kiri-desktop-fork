@@ -36,4 +36,4 @@ Arabic and Indic families in index.html). JetBrains Mono leaves out its
 programming ligatures: an ID or a command must read exactly as typed.
 
 SIL Open Font License 1.1: OFL-SpaceGrotesk.txt and OFL-JetBrainsMono.txt
-here, and in the repository's NOTICE.
+here, and in the repository's notice.md.

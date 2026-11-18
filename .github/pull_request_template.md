@@ -4,7 +4,7 @@
 
 Fixes #
 
-<!-- Anything larger than a small fix needs an issue we've agreed on first (see CONTRIBUTING.md). -->
+<!-- Anything larger than a small fix needs an issue we've agreed on first (see .github/contributing.md). -->
 
 ## How you tested it
 

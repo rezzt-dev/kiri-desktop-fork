@@ -30,7 +30,7 @@ tests/e2e.sh          # the Docker compatibility suite, against a running `kiri 
 Use `cargo xtask host`, not plain `cargo build`, for a binary you run as the
 daemon: without the virtualization entitlement the VM will not start. The
 guest needs `cargo xtask kernel`, `cargo xtask disk` and `cargo xtask guest`
-once; see the README.
+once; see [the development guide](../docs/development.md).
 
 `tests/e2e.sh` only removes containers, networks and volumes it created.
 
@@ -65,7 +65,7 @@ Linux, build both with `cargo xtask linux` and run
 - Run `cargo fmt`, `cargo clippy` and the tests. After changing Rust
   dependencies or bundled tool versions, run `scripts/ci/notices.sh` and commit
   the updated NOTICE.
-- Sign your commits and the [Contributor License Agreement](CLA.md) when CLA
+- Sign your commits and the [Contributor License Agreement](../.docs/github-docs/cla.md) when CLA
   Assistant asks for it on your first pull request.
 
 By submitting a contribution you agree it is licensed under Apache-2.0, as

@@ -13,8 +13,8 @@ fecha: `2026-11-18`. referencia de organizacion: `focusphone-app`, en particular
 | contexto heredado de otro fork | las guias citaban `apps/studio/`, workflows de Studio y version `5.0.9` | sustituido por el workspace Rust, workflows y fuentes de version de Kiri |
 | faltaban entradas raiz | inventario inicial sin `agents.md` ni `claude.md` | creadas con mapa tecnico, comprobaciones y enlaces comunes |
 | la entrada complementaria estaba ignorada | patron `CLAUDE.md` de `.gitignore` coincide con `claude.md` en este entorno | añadir excepcion explicita para versionar la entrada compartida |
-| plantilla de contribucion y reglas de atribucion ambiguas | `.github/PULL_REQUEST_TEMPLATE.md` pide declarar herramientas | distinguir pies automaticos de la declaracion veraz exigida por upstream |
-| contexto de publicacion ajeno al fork | `Cargo.toml`, `xtask/src/main.rs`, `RELEASES.md` y `docs/releases/` | documentar `0.0.0` en checkouts y proceso upstream desde tags; sin inventar releases propias |
+| plantilla de contribucion y reglas de atribucion ambiguas | `.github/pull_request_template.md` pide declarar herramientas | distinguir pies automaticos de la declaracion veraz exigida por upstream |
+| contexto de publicacion ajeno al fork | `Cargo.toml`, `xtask/src/main.rs`, `.docs/github-docs/releases.md` y `docs/releases/` | documentar `0.0.0` en checkouts y proceso upstream desde tags; sin inventar releases propias |
 | cambio previo del propietario | `git status --short` inicial: `scripts/reinstall-linux.sh` modificado | conservar y excluir del commit documental |
 
 ## ARCHIVOS DEL COMMIT PROPUESTO

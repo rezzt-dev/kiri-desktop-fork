@@ -444,8 +444,8 @@ fn windows(root: &Path, debug: bool, arch: WinArch) -> io::Result<()> {
     for s in ["kiri.ps1", "setup-tools.ps1", "kiri-admin.ps1"] {
         fs::copy(root.join("contrib/windows").join(s), out.join(s))?;
     }
-    fs::copy(root.join("LICENSE"), out.join("LICENSE"))?;
-    fs::copy(root.join("NOTICE"), out.join("NOTICE"))?;
+    fs::copy(root.join("license.md"), out.join("LICENSE"))?;
+    fs::copy(root.join("notice.md"), out.join("NOTICE"))?;
     // bin\kiri.exe, the `kiri` command: Share on Windows itself, docker's
     // commands through docker.exe, the engine's own by the `kiri` in WSL
     // (crates/kiri/src/wsl.rs). Built before kiri-win, so its hash goes in
@@ -724,8 +724,8 @@ fn app(root: &Path, arch: Arch, lite: bool) -> io::Result<PathBuf> {
     fs::copy(arch.host_bin(root), macos.join("kiri"))?;
     // In Resources, not loose in Contents: codesign refuses a file there
     // ("code object is not signed at all ... In subcomponent: Contents/LICENSE").
-    fs::copy(root.join("LICENSE"), res.join("LICENSE"))?;
-    fs::copy(root.join("NOTICE"), res.join("NOTICE"))?;
+    fs::copy(root.join("license.md"), res.join("LICENSE"))?;
+    fs::copy(root.join("notice.md"), res.join("NOTICE"))?;
     fs::copy(root.join("guest/kernel/SOURCE_OFFER.md"), res.join("KERNEL_SOURCE_OFFER.md"))?;
     let out = arch.guest_out(root)?;
     for f in [arch.kernel(), "initramfs.cpio"] {
